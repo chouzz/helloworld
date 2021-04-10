@@ -23,8 +23,8 @@ jobs:
         uses: GabrielBB/xvfb-action@v1.0
         with:
           run: npm test
-  publish:
-      name: Release and publish
+  build:
+      name: build
       needs: test
       runs-on: ubuntu-18.04
       steps:
@@ -36,5 +36,5 @@ jobs:
             node-version: 12
         - name: Install dependencies
           run: npm install
-        - name: Release
-          run: vsce package
+        - name: build
+          run: npm run compile
